@@ -1,6 +1,10 @@
 import React from 'react' ;
-import Logo from "../img/logo.png" ;
 import {MdShoppingBasket} from "react-icons/md"
+
+import Logo from "../img/logo.png" ;
+import Avatar from "../img/img_avatar.png" ;
+
+
 
 const Header = () => {
   return (
@@ -44,15 +48,12 @@ const Header = () => {
             <div className='absolute -top-2 -right-4 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center'>
               <p className='text-xs text-white font-semibold'>2</p>
             </div>
-
          </div>
 
+        <img src={Avatar} className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl' alt="imagen de perfil" />
 
+        </div>     
     </div>
-
-       
-
-      </div>
 
 
 
