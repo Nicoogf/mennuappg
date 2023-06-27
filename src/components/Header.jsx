@@ -23,13 +23,16 @@ const Header = () => {
 
   const login = async() =>{
 
-    const {user : { refreshToken , providerData }} = await signInWithPopup(firebaseAuth, provider) ;
-    dispatch({
-      type : actionType.SET_USER,
-      user: providerData[0],
-
-    })
-    localStorage.setItem("user" , JSON.stringify(providerData[0]))
+ 
+      if(!user){
+        const {user : { refreshToken , providerData }} = await signInWithPopup(firebaseAuth, provider) ;
+        dispatch({
+          type : actionType.SET_USER,
+          user: providerData[0],
+    
+        })
+        localStorage.setItem("user" , JSON.stringify(providerData[0]))
+      }
   };
 
   return (
@@ -83,6 +86,13 @@ const Header = () => {
             alt="imagen de perfil"
             onClick={login} 
             />
+
+            <div className='w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0 px-4 py-2'>
+
+            <p>Agregar Producto</p>
+            <p>Cerrar Seccion</p>
+
+            </div>
 
           </div>
 
