@@ -1,6 +1,6 @@
 import React from 'react' ;
 import Delivery from "../img/delivery.png" ; 
-import HeroBg from "../img/coockies.png" ;
+import HeroBg from "../img/prueba-tarj.png" ;
 import { heroData } from '../utils/data';
 
 
@@ -41,7 +41,7 @@ const HomeContainer = () => {
        
             <img src={HeroBg}  className="ml-auto h-400 w-full lg:w-auto lg:h-650" alt="Coockies" />
 
-            <div className='w-full h-full absolute top-0 left-0 flex items-center justify-center py-4 gap-4 flex-wrap'>
+            <div className='w-full h-full absolute top-0 left-0 flex items-center justify-center lg:px-32 py-4 gap-4 flex-wrap'>
 
               
 
