@@ -1,7 +1,9 @@
 import React from 'react' ;
 import Delivery from "../img/delivery.png" ; 
 import HeroBg from "../img/coockies.png" ;
-import Alfajor from "../img/alfajor.png" ; 
+import { heroData } from '../utils/data';
+
+
 
 const HomeContainer = () => {
   return (
@@ -39,21 +41,28 @@ const HomeContainer = () => {
        
             <img src={HeroBg}  className="ml-auto h-400 w-full lg:w-auto lg:h-650" alt="Coockies" />
 
-            <div className='w-full h-full absolute top-0 left-0 flex items-center justify-center px-32 py-4'>
+            <div className='w-full h-full absolute top-0 left-0 flex items-center justify-center px-32 py-4 gap-4 flex-wrap'>
 
-              <div className='w-190 p-4 bg-cardOverlay backdrop-blur-md rounded-md flex items-center justify-center flex-col'>
-                <img src={Alfajor} className="w-40 -mt-20" alt="" />
+              
 
-                <p className='text-base font-semibold text-textColor'>Alfajores Bariloche</p>
+            {heroData && heroData.map( n => (
 
-                <p className='text-sm text-gray-500 font-semibold'> Blancos y Negros</p>
+              <div key = {n.id} className='w-190 min-w-[190px] p-4 bg-cardOverlay backdrop-blur-md rounded-3xl flex items-center justify-center flex-col drop-shadow-lg'>
+              <img src={n.imgScr} className="w-40 -mt-20" alt="" />
 
-              </div>
+              <p className='text-xl font-semibold text-textColor mt-4'>{n.name}</p>
+
+              <p className='text-sm text-gray-500 font-semibold my-3'> {n.desc} </p>
+
+              <p className='text-sm font-semibold text-headingColor'> <span className='text-xs text-red-600'>$</span> {n.price} </p>
 
             </div>
-       
-       
-    </div>
+
+            ))}
+
+
+            </div>      
+      </div>
     </section>
   )
 }
