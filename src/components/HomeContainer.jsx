@@ -1,6 +1,7 @@
 import React from 'react' ;
 import Delivery from "../img/delivery.png" ; 
 import HeroBg from "../img/coockies.png" ;
+import Alfajor from "../img/alfajor.png" ; 
 
 const HomeContainer = () => {
   return (
@@ -40,7 +41,12 @@ const HomeContainer = () => {
 
             <div className='w-full h-full absolute top-0 left-0 flex items-center justify-center px-32 py-4'>
 
-              <div className='w-190 p-2 bg-cardOverlay backdrop-blur-md'>
+              <div className='w-190 p-4 bg-cardOverlay backdrop-blur-md rounded-md flex items-center justify-center flex-col'>
+                <img src={Alfajor} className="w-40 -mt-20" alt="" />
+
+                <p className='text-base font-semibold text-textColor'>Alfajores Bariloche</p>
+
+                <p className='text-sm text-gray-500 font-semibold'> Blancos y Negros</p>
 
               </div>
 
