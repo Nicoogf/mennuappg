@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react' ;
+import { motion } from "framer-motion" ; 
+import  {MdFastfood} from "react-icons/md" ;
+import { categories } from '../utils/data';
 
 const CreateContainer = () => {
   const [title, setTitle] = useState ("") ;
@@ -6,7 +9,7 @@ const CreateContainer = () => {
   const [price, setPrice] = useState ("") ;
   const [category, setCategory] = useState (null) ;
   const [imageAsset , setImageAsset] = useState(null) ; 
-  const [fields, setFields] = useState (true) ;
+  const [fields, setFields] = useState (false) ;
   const [alertStatus , steAlertStatus] = useState("s") ; 
   const [msg , setMsg ] = useState(null) ;
   const [ isLoading, setIsLoading] = useState(false);
@@ -19,19 +22,44 @@ const CreateContainer = () => {
         <div classname ="w-[90%] md:w-[75%] border border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center">
           {
             fields && (
-              <p className={`w-full p-2 rounded-lg text-center text-lg font-semibold  ${ 
+              <motion.p initial={{opacity:0}}
+                        animate={{opacity:1}}
+                        exit={{opacity:0}}
+                className={`w-full p-2 rounded-lg text-center text-lg font-semibold  ${ 
                 alertStatus === "danger"
                 ? 'bg-red-400 text-red-800'
                 : "bg-emerald-400 text-emerald-800"
                 }`}
               > 
 
-                Something Wrong
-              </p>
+                {msg}Something Wrong
+              </motion.p>
             )
           }
-        </div>
 
+          <div className='w-full py-2 border-b border-gray-300 flex items-center gap-2'>
+            <MdFastfood className="text-xl text-gray-700"/>
+            <input type="text" required value={title} placeholder="Ingresar producto"
+                    className='w-full h-full text-lg bg-transparent font-semibold outline-none border-none placeholder:text-gray-400 text-textColor'
+                    onChange={(e) => setTitle(e.target.value)}/>
+          </div>
+
+          <div className='w-full'>
+            <select onChange={ (e) => setCalories(e.target.value)}>
+              <option value="other" className='bg-white'>Selecionar Categoria</option>
+              {categories && categories.map (item => (
+                <option key={item.id} className='"text-base boder-0 outline-none capitalize bd-white text-textHeadingColor'
+                value={item.urlParamName}>
+
+                  {item.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+
+
+        </div>
     </div>
   )
 }

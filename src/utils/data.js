@@ -9,3 +9,38 @@ export const heroData = [
     {id : 3 , name : "Sable" , desc : "Dulce de leche" , price : "1150" , imgScr : Maicena},
     {id : 4 , name : "Coockies" , desc : "Con chips de chocolate" , price : "1300" , imgScr : Coockies},
   ] ;
+
+  export const categories = [
+
+    {
+      id:1,
+      name:"Alfajores",
+      urlParamName: "alfajores"
+    },
+    {
+      id:2,
+      name:"Galletitas",
+      urlParamName: "coockies"
+    },
+    {
+      id:2,
+      name:"Oreos",
+      urlParamName: "oreos"
+    },
+    {
+      id:4,
+      name:"Tortas",
+      urlParamName: "tortas"
+    },
+    {
+      id:5,
+      name:"Frutas",
+      urlParamName: "frutas"
+    },
+    {
+      id:6,
+      name:"Snacks",
+      urlParamName: "snacks"
+    }
+
+  ]
