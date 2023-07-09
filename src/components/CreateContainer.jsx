@@ -3,6 +3,8 @@ import { motion } from "framer-motion" ;
 import { MdFastfood , MdCloudUpload , MdDelete , MdFoodBank , MdAttachMoney } from "react-icons/md" ;
 import { categories } from '../utils/data';
 import Loader from "../components/Loader" ;
+import { storage } from '../firebase.config';
+import { uploadBytesResumable } from 'firebase/storage';
 
 const CreateContainer = () => {
   const [title, setTitle] = useState ("") ;
@@ -15,8 +17,17 @@ const CreateContainer = () => {
   const [msg , setMsg ] = useState(null) ;
   const [ isLoading, setIsLoading] = useState(false);
 
- const  uploadImage = () =>{
+ const  uploadImage = (e) =>{
+    setIsLoading(true); 
+    const imageFile = e.target.files[0];
+    const storageRef =ref(storage , `Images/${Date.now()}-${imageFile.name}`)
+    const uploadTask = uploadBytesResumable(storageRef, imageFile) ; 
 
+    uploadTask.on("state_changed" , (snapshot) => {
+        const uploadProgress = ( snapshot.bytesTransferred / snapshot.totalBytes) * 100 ;
+    } , (error)=> {
+        console.log(error);
+    } , () => {} )
  }
 
  const deleteImage  = () =>{
