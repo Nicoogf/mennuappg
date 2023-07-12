@@ -3,13 +3,11 @@ import { motion } from "framer-motion" ;
 import { MdFastfood , MdCloudUpload , MdDelete , MdFoodBank , MdAttachMoney } from "react-icons/md" ;
 import { categories } from '../utils/data';
 import Loader from "../components/Loader" ;
-import { storage } from '../firebase.config';
 import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
-import  saveItems  from '../utils/firebaseFunctions,js';
-import { useStateValue } from "./context/StateProvider" ;
+import { storage } from '../firebase.config';
+import { getAllFoodItems, saveItems } from "./utils/firebaseFunctions";
 import { actionType }  from "../context/reducer";
-import { getAllFoodItems  }  from "../utils/firebaseFunctions";
-
+import { useStateValue } from "../context/StateProvider" ;
 
 
 
